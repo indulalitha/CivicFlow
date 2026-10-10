@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101a2d">
+  <title>CivicFlow | Smart Government for Business</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="#" onclick="showPage('overview');return false">
+      <div class="brand-icon"><i data-lucide="landmark"></i></div>
+      <div><strong>CivicFlow</strong><small>BUSINESS CONCIERGE</small></div>
+    </a>
+
+    <div class="workspace">
+      <div class="workspace-avatar">B</div>
+      <div><strong>Business Workspace</strong><small>Prototype account</small></div>
+      <i data-lucide="chevrons-up-down" class="muted"></i>
+    </div>
+
+    <div class="nav-label">WORKSPACE</div>
+    <nav>
+      <button class="nav-link active" data-page="overview" onclick="showPage('overview')"><i data-lucide="layout-dashboard"></i> Overview</button>
+      <button class="nav-link" data-page="discover" onclick="showPage('discover')"><i data-lucide="scan-search"></i> Scheme discovery <span class="nav-count">3</span></button>
+      <button class="nav-link" data-page="compliance" onclick="showPage('compliance')"><i data-lucide="calendar-check"></i> Compliance tracker</button>
+      <button class="nav-link" data-page="applications" onclick="showPage('applications')"><i data-lucide="files"></i> Applications</button>
+      <button class="nav-link" data-page="advisors" onclick="showPage('advisors')"><i data-lucide="users"></i> Find an advisor</button>
+    </nav>
+
+    <div class="nav-label">YOUR ASSISTANT</div>
+    <button class="nav-link" onclick="openAssistant()"><i data-lucide="sparkles"></i> Ask Civic AI <span class="ai-dot"></span></button>
+
+    <div class="sidebar-bottom">
+      <div class="help-card">
+        <div class="help-icon"><i data-lucide="shield-check"></i></div>
+        <strong>Government, simplified.</strong>
+        <p>Find the right scheme. Understand your obligations. Move forward with confidence.</p>
+        <button class="text-btn" onclick="showPage('discover')">Explore benefits <i data-lucide="arrow-up-right"></i></button>
+      </div>
+      <div class="profile">
+        <div class="profile-avatar">CF</div>
+        <div><strong>Demo Enterprise</strong><small>Small business owner</small></div>
+        <button class="icon-btn" title="Profile" onclick="notify('This is a demo workspace.')"><i data-lucide="settings-2"></i></button>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <button class="icon-btn mobile-menu" onclick="toggleSidebar()"><i data-lucide="menu"></i></button>
+      <div class="breadcrumbs">Workspace <span>/</span> <strong id="breadcrumb">Overview</strong></div>
+      <div class="top-actions">
+        <div class="demo-tag"><span></span> INTERACTIVE DEMO</div>
+        <button class="icon-btn notification-btn" title="Notifications" onclick="showPage('compliance')"><i data-lucide="bell"></i><b></b></button>
+        <div class="top-avatar">B</div>
+      </div>
+    </header>
+
+    <div class="content">
+
+      <!-- OVERVIEW -->
+      <section class="page active" id="page-overview">
+        <div class="welcome-row">
+          <div>
+            <div class="eyebrow"><span class="live-dot"></span> YOUR BUSINESS COMMAND CENTRE</div>
+            <h1>Good morning, <span>Business Owner.</span></h1>
+            <p class="subheading">Your business, government services, and opportunities — all in one place.</p>
+          </div>
+          <button class="btn btn-primary" onclick="showPage('discover')"><i data-lucide="sparkles"></i> Discover schemes</button>
+        </div>
+
+        <div class="insight-banner">
+          <div class="insight-symbol"><i data-lucide="sparkles"></i></div>
+          <div class="insight-copy">
+            <span class="insight-label">YOUR CIVICFLOW INSIGHT</span>
+            <h3>There may be benefits your business hasn't claimed yet.</h3>
+            <p>Answer a few questions to explore potentially relevant government schemes.</p>
+          </div>
+          <button class="btn btn-light" onclick="showPage('discover')">Find opportunities <i data-lucide="arrow-up-right"></i></button>
+          <div class="banner-orb"></div>
+        </div>
+
+        <div class="section-heading">
+          <div><h2>Your business at a glance</h2><p>A simplified view of your current workspace.</p></div>
+          <span class="date-chip"><i data-lucide="calendar-days"></i> Demo workspace</span>
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat-card">
+            <div class="stat-top"><span>Potential scheme matches</span><div class="stat-icon purple"><i data-lucide="target"></i></div></div>
+            <div class="stat-number" id="matchCount">03</div>
+            <div class="stat-foot"><span class="dot purple-dot"></span> Based on sample business data</div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-top"><span>Pending compliance tasks</span><div class="stat-icon amber"><i data-lucide="clipboard-list"></i></div></div>
+            <div class="stat-number" id="pendingCount">03</div>
+            <div class="stat-foot"><span class="warning-text">Needs attention</span> <span>· Demo deadlines</span></div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-top"><span>Applications in progress</span><div class="stat-icon blue"><i data-lucide="file-check-2"></i></div></div>
+            <div class="stat-number" id="applicationCount">01</div>
+            <div class="stat-foot"><span class="dot blue-dot"></span> Includes sample application</div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-top"><span>Potential benefit value</span><div class="stat-icon green"><i data-lucide="indian-rupee"></i></div></div>
+            <div class="stat-number small-number">Explore</div>
+            <div class="stat-foot">Eligibility and amounts require verification</div>
+          </article>
+        </div>
+
+        <div class="dashboard-grid">
+          <article class="panel">
+            <div class="panel-header"><div><h2>Recommended opportunities</h2><p>Explore these illustrative programmes.</p></div><button class="link-btn" onclick="showPage('discover')">View all <i data-lucide="arrow-right"></i></button></div>
+            <div id="overviewSchemes" class="scheme-list"></div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-header"><div><h2>Compliance checklist</h2><p>Stay organised and on top of tasks.</p></div><button class="icon-btn" onclick="showPage('compliance')"><i data-lucide="arrow-up-right"></i></button></div>
+            <div class="progress-row"><span>Tasks completed</span><strong id="progressText">1 of 4</strong></div>
+            <div class="progress-track"><div id="progressBar" style="width:25%"></div></div>
+            <div id="overviewTasks" class="task-list"></div>
+            <button class="btn btn-outline full-btn" onclick="showPage('compliance')">Open compliance tracker <i data-lucide="arrow-right"></i></button>
+          </article>
+        </div>
+
+        <div class="bottom-note"><i data-lucide="info"></i><span><strong>Prototype notice:</strong> All counts, tasks, and recommendations on this screen are illustrative. They are not official eligibility results or legal advice.</span></div>
+      </section>
+
+      <!-- DISCOVERY -->
+      <section class="page" id="page-discover">
+        <div class="page-heading">
+          <div><div class="eyebrow">OPPORTUNITY FINDER</div><h1>Discover your <span>benefits.</span></h1><p class="subheading">Tell us about your business to explore relevant schemes and support programmes.</p></div>
+        </div>
+        <div class="discovery-layout">
+          <article class="panel form-panel">
+            <div class="form-title"><div class="form-title-icon"><i data-lucide="building-2"></i></div><div><h2>About your business</h2><p>Complete the details below.</p></div></div>
+            <form id="businessForm">
+              <label for="businessName">Business name</label>
+              <input id="businessName" placeholder="e.g. Sunrise Textiles" required>
+              <div class="form-grid">
+                <div><label for="industry">Industry</label><select id="industry" required><option value="">Select industry</option><option value="manufacturing">Manufacturing</option><option value="technology">IT & technology</option><option value="retail">Retail & trading</option><option value="agriculture">Agriculture & food</option><option value="services">Professional services</option></select></div>
+                <div><label for="state">Business state</label><select id="state" required><option value="">Select state</option><option>Andhra Pradesh</option><option>Telangana</option><option>Karnataka</option><option>Tamil Nadu</option><option>Maharashtra</option><option>Delhi</option><option>Kerala</option><option>Gujarat</option><option>Other</option></select></div>
+              </div>
+              <label for="turnover">Annual turnover</label>
+              <select id="turnover" required><option value="">Choose turnover range</option><option value="below">Below ₹10 lakh</option><option value="small">₹10 lakh – ₹1 crore</option><option value="medium">₹1 crore – ₹10 crore</option><option value="large">Above ₹10 crore</option></select>
+              <label for="registration">Business registration status</label>
+              <select id="registration" required><option value="">Select status</option><option value="udyam">Udyam / MSME registered</option><option value="gst">GST registered</option><option value="both">Both Udyam and GST registered</option><option value="none">Not registered yet</option></select>
+              <label class="checkbox-line"><input type="checkbox" id="firstGen"> I am a first-time entrepreneur.</label>
+              <button class="btn btn-primary full-btn" type="submit"><i data-lucide="sparkles"></i> Find matching opportunities</button>
+              <p class="privacy-note"><i data-lucide="lock-keyhole"></i> Demo only. Do not enter PAN, Aadhaar, bank details, or other sensitive information.</p>
+            </form>
+          </article>
+
+          <div class="discovery-results">
+            <div class="results-top"><div><span class="eyebrow">PERSONALISED EXPLORATION</span><h2 id="resultsTitle">Potential opportunities</h2></div><span class="result-count" id="resultCount">03 options</span></div>
+            <div id="schemeResults" class="results-list"></div>
+            <div class="verification-note"><i data-lucide="shield-alert"></i><div><strong>Verify before applying</strong><p>These are illustrative recommendations. Current scheme availability, eligibility, benefits, and deadlines must be checked on official government portals.</p></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- COMPLIANCE -->
+      <section class="page" id="page-compliance">
+        <div class="page-heading">
+          <div><div class="eyebrow">STAY COMPLIANT</div><h1>Your compliance <span>tracker.</span></h1><p class="subheading">Keep business paperwork organised with a simple, actionable checklist.</p></div>
+          <button class="btn btn-primary" onclick="addTask()"><i data-lucide="plus"></i> Add a task</button>
+        </div>
+        <div class="compliance-summary">
+          <div class="summary-tile"><span>Total tasks</span><strong id="totalTasks">4</strong></div>
+          <div class="summary-tile"><span>Completed</span><strong id="completedTasks">1</strong></div>
+          <div class="summary-tile"><span>Still to review</span><strong id="remainingTasks">3</strong></div>
+        </div>
+        <article class="panel">
+          <div class="panel-header"><div><h2>Your business checklist</h2><p>Mark items complete as you organise your records.</p></div><span class="status-pill">DEMO DATA</span></div>
+          <div class="task-table-head"><span>TASK</span><span>TYPE</span><span>DEMO DUE DATE</span><span>STATUS</span></div>
+          <div id="allTasks" class="all-tasks"></div>
+        </article>
+        <div class="bottom-note"><i data-lucide="alert-circle"></i><span>Deadlines shown here are fictional demonstration dates. Actual filing frequency and deadlines depend on your registration, turnover, applicable rules, and business circumstances.</span></div>
+      </section>
+
+      <!-- APPLICATIONS -->
+      <section class="page" id="page-applications">
+        <div class="page-heading"><div><div class="eyebrow">APPLICATION CENTRE</div><h1>Everything in <span>one place.</span></h1><p class="subheading">Prepare, review, and organise your application information.</p></div><button class="btn btn-primary" onclick="showPage('discover')"><i data-lucide="plus"></i> New application</button></div>
+        <article class="panel">
+          <div class="panel-header"><div><h2>Your applications</h2><p>Example application records for demonstration.</p></div><span class="status-pill">SAMPLE RECORDS</span></div>
+          <div class="application-card">
+            <div class="application-icon"><i data-lucide="file-text"></i></div>
+            <div class="application-details"><h3>MSME support programme</h3><p>Sample draft · No official submission</p><span class="mini-tag">DRAFT</span></div>
+            <button class="btn btn-outline" onclick="openApplication('MSME support programme')">Review draft</button>
+          </div>
+          <div class="application-card">
+            <div class="application-icon blue-bg"><i data-lucide="clipboard-check"></i></div>
+            <div class="application-details"><h3>Business registration checklist</h3><p>Preparation checklist · Not a registration</p><span class="mini-tag gray-tag">IN PREPARATION</span></div>
+            <button class="btn btn-outline" onclick="openApplication('Business registration checklist')">View checklist</button>
+          </div>
+        </article>
+        <article class="panel filing-panel"><div class="filing-icon"><i data-lucide="file-check-2"></i></div><div><h2>Ready to prepare your next application?</h2><p>CivicFlow can help organise the information and documents you may need before you visit the official portal.</p></div><button class="btn btn-primary" onclick="showPage('discover')">Get started <i data-lucide="arrow-right"></i></button></article>
+      </section>
+
+      <!-- ADVISORS -->
+      <section class="page" id="page-advisors">
+        <div class="page-heading"><div><div class="eyebrow">EXPERT SUPPORT</div><h1>Meet your <span>business advisors.</span></h1><p class="subheading">Explore a sample directory of professionals for more complex questions.</p></div></div>
+        <div class="advisor-filter"><i data-lucide="search"></i><input id="advisorSearch" placeholder="Search by expertise or name..." oninput="filterAdvisors()"><select id="advisorType" onchange="filterAdvisors()"><option value="all">All expertise</option><option value="tax">Tax & GST</option><option value="msme">MSME schemes</option><option value="legal">Legal & licensing</option></select></div>
+        <div id="advisorGrid" class="advisor-grid"></div>
+        <div class="bottom-note"><i data-lucide="info"></i><span>Advisors are fictional demo profiles, not verified professionals. A real marketplace would require identity checks, credentials, consent, and transparent referral terms.</span></div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<!-- AI CHAT -->
+<button class="chat-launcher" id="chatLauncher" onclick="toggleChat()"><i data-lucide="message-circle"></i><span>Ask Civic AI</span></button>
+<div class="chat-window" id="chatWindow">
+  <div class="chat-header"><div class="chat-brand-icon"><i data-lucide="sparkles"></i></div><div><strong>Civic AI Assistant</strong><small><span class="live-dot"></span> Interactive demo assistant</small></div><button class="icon-btn" onclick="toggleChat()"><i data-lucide="x"></i></button></div>
+  <div class="chat-messages" id="chatMessages"><div class="chat-date">DEMO CONVERSATION</div><div class="message bot-message">Hello! I'm Civic AI. I can help you explore business schemes, understand common registration steps, and organise compliance questions. What would you like to explore?</div></div>
+  <div class="suggested-prompts"><button onclick="quickAsk('What is Udyam registration?')">Udyam registration</button><button onclick="quickAsk('How do I find MSME schemes?')">MSME schemes</button><button onclick="quickAsk('What documents might I need?')">Required documents</button></div>
+  <form id="chatForm" class="chat-input-row"><input id="chatInput" placeholder="Ask a business question..." autocomplete="off" required><button class="send-btn" type="submit" aria-label="Send"><i data-lucide="send"></i></button></form>
+  <div class="chat-disclaimer">Demo responses only. Verify important information with official sources.</div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-backdrop" id="modalBackdrop" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <div class="modal-head"><div><span class="eyebrow">CIVICFLOW WORKSPACE</span><h2 id="modalTitle">Application preview</h2></div><button class="icon-btn" onclick="closeModal()"><i data-lucide="x"></i></button></div>
+    <div id="modalBody"></div>
+    <div class="modal-footer"><button class="btn btn-outline" onclick="closeModal()">Close</button><button class="btn btn-primary" id="modalAction" onclick="closeModal()">Done</button></div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<footer class="site-footer">CivicFlow · A digital governance concept for MSMEs <span>Built as an ideathon prototype · Not an official government service</span></footer>
+<script src="script.js"></script>
+</body>
+</html>
