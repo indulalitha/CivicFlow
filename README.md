@@ -1,6 +1,6 @@
 # CivicFlow — Smart Business Support Platform
 
-**CivicFlow** is a smart, user-friendly business support platform designed to help entrepreneurs, startups, and small business owners explore government schemes, organize compliance tasks, and discover useful business resources in one place.
+CivicFlow is a smart, user-friendly business support platform designed to help entrepreneurs, startups, and small business owners explore government schemes, organize compliance tasks, and discover useful business resources in one place.
 
 The platform provides a centralized dashboard that simplifies access to business-related information and helps users navigate important steps involved in starting and managing a business.
 
